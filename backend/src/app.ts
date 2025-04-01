@@ -1,13 +1,14 @@
 import express, { Request, Response } from 'express';
+import teamsRouter from './routes/teamsRoutes';
+import teamRouter from './routes/teamRoutes';
 import dotenv from 'dotenv';
 
-dotenv.config();
 const app = express();
+dotenv.config();
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!');
-});
+app.use("/api", teamsRouter);
+app.use("/api", teamRouter);
 
 app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${process.env.PORT}`);
+    console.log(`Listening on port ${process.env.PORT}`);
 });
