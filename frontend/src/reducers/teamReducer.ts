@@ -1,12 +1,12 @@
-import { IErrorResponse, ITeam, ITeamState, ITeamAction } from "../types/index";
+import { IErrorResponse, ITeams, ITeamsState, ITeamsAction } from "../interfaces/index";
 
-const initialTeamState: ITeamState = {
+const initialTeamsState: ITeamsState = {
     loading: null,
-    teamData: null,
+    teamsData: null,
     teamError: null,
 };
 
-function teamReducer(state: ITeamState = initialTeamState, action: ITeamAction) {
+function teamsReducer(state: ITeamsState = initialTeamsState, action: ITeamsAction) {
     const { type } = action;
 
     switch(type) {
@@ -20,7 +20,7 @@ function teamReducer(state: ITeamState = initialTeamState, action: ITeamAction) 
             return {
                 ...state,
                 loading: false,
-                teamData: payload as ITeam,
+                teamsData: payload as ITeams,
             };
         };
         case 'FETCH_TEAM_FAILURE': {
@@ -37,6 +37,6 @@ function teamReducer(state: ITeamState = initialTeamState, action: ITeamAction) 
 };
 
 export {
-    teamReducer,
-    initialTeamState
+    teamsReducer,
+    initialTeamsState
 };
