@@ -1,9 +1,10 @@
 import { useReducer, useEffect } from "react";
-import { teamReducer, initialTeamState } from "../reducers/teamReducer";
+import { teamsReducer, initialTeamsState } from "../reducers/teamReducer";
 import { getTeams } from "../api/teams";
+import { ITeamsState } from "../interfaces/index";
 
 function useFetchTeams() {
-    const [state, dispatch] = useReducer(teamReducer, initialTeamState);
+    const [state, dispatch] = useReducer(teamsReducer, initialTeamsState as ITeamsState);
 
     useEffect(() => {
         const fetchTeams = async () => {
@@ -24,7 +25,7 @@ function useFetchTeams() {
 
     return {
         loadingTeams: state.loading,
-        teamsData: state.teamData,
+        teamsData: state.teamsData,
         teamsError: state.teamError
     };
 };

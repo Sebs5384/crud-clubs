@@ -1,7 +1,7 @@
-import { ITeam } from "../types/index";
+import { ITeams } from "../interfaces/index";
 const BASE_URL = "http://localhost:5000";
 
-async function getTeams(): Promise<ITeam> {
+async function getTeams(): Promise<ITeams> {
     const teamsUrl = `${BASE_URL}/api/teams`;
 
     try {
