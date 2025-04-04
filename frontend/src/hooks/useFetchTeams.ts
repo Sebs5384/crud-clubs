@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { teamsReducer, initialTeamsState } from "../reducers/teamReducer";
+import { teamsReducer, initialTeamsState } from "../reducers/teamsReducer";
 import { getTeams } from "../api/teams";
 import { ITeamsState } from "../interfaces/index";
 
